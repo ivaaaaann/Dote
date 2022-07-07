@@ -1,28 +1,40 @@
 import styled, { css } from "styled-components";
 
 export const NavContainer = styled.div<{ isScroll: boolean }>`
-  width: 480px;
+  width: 100%;
   height: 70px;
-  display: flex;
-  align-items: center;
   padding: 0px 20px;
   position: fixed;
   top: 0px;
-  background-color: white;
-  transition: 1s;
+  background: transparent;
+  transition: all 0.3s ease;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   ${({ isScroll }) =>
     isScroll
       ? css`
-          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          background-color: ${({ theme }) => theme.subBackgroundColor};
         `
       : css`
-          background-color: white;
+          background: transparent;
         `}
 `;
 
 export const NavTitle = styled.h1`
   font-size: 25px;
-  color: #0067bcd9;
+  color: ${({ theme }) => theme.contrast};
   font-weight: bold;
+`;
+
+export const NavDarkmodeButton = styled.button`
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  border: 0px;
+  outline: none;
+  font-size: 30px;
+  color: ${({ theme }) => theme.contrast};
 `;

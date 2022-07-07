@@ -11,7 +11,7 @@ const useNav = () => {
   }, []);
 
   useEffect(() => {
-    if (scrollY > 35) {
+    if (scrollY > 15) {
       setIsScroll(true);
     } else {
       setIsScroll(false);
