@@ -1,7 +1,14 @@
-import { NavContainer } from "./style";
+import useNav from "../../../hooks/common/useNav";
+import { NavContainer, NavTitle } from "./style";
 
 const Nav = () => {
-  return <NavContainer></NavContainer>;
+  const { isScroll } = useNav();
+
+  return (
+    <NavContainer isScroll={isScroll}>
+      <NavTitle>DOTE</NavTitle>
+    </NavContainer>
+  );
 };
 
 export default Nav;

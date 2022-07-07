@@ -8,6 +8,8 @@ const useAuth = () => {
   useEffect(() => {
     if (localStorage.getItem(ACCESS_KEY) === null) {
       navigate("/login");
+    } else {
+      navigate("/");
     }
   }, [navigate]);
 

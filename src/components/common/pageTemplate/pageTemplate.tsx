@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import Nav from "../nav/nav";
-import { PageTemplateContainer } from "./style";
+import { PageTemplateContainer, PageTemplateWrap } from "./style";
 
 interface Props {
   children: ReactNode;
@@ -10,7 +10,7 @@ const PageTemplate = ({ children }: Props) => {
   return (
     <PageTemplateContainer>
       <Nav />
-      {children}
+      <PageTemplateWrap>{children}</PageTemplateWrap>
     </PageTemplateContainer>
   );
 };
