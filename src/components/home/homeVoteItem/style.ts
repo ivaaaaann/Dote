@@ -6,4 +6,30 @@ export const HomeVoteItemContainer = styled.div`
   border-radius: 20px;
   background-color: ${({ theme }) => theme.backgroundColor};
   cursor: pointer;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: ${({ theme }) => theme.contrast};
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+  }
+`;
+
+export const HomeVoteItemTitle = styled.h1`
+  font-size: 25px;
+  color: ${({ theme }) => theme.contrast};
+  display: flex;
+  align-items: center;
+`;
+
+export const HomeVoteTimeWrap = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+`;
+
+export const HomeVoteTime = styled.span`
+  font-size: 15px;
+  color: ${({ theme }) => theme.contrast};
 `;
