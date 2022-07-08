@@ -1,3 +1,4 @@
+import useVoteDetail from "../../hooks/detail/useVoteDetail";
 import { VoteDetail } from "../../interfaces/common/common.type";
 import DetailItem from "./detailItem/detailItem";
 import { DetailContainer } from "./style";
@@ -14,10 +15,16 @@ const test: VoteDetail[] = [
 ];
 
 const Detail = () => {
+  const { selectedVote, onChangeVote } = useVoteDetail();
+
   return (
     <DetailContainer>
       {test.map((item) => (
-        <DetailItem voteDetailData={item} />
+        <DetailItem
+          voteDetailData={item}
+          onChangeVote={onChangeVote}
+          selectedVote={item.voteTitle === selectedVote}
+        />
       ))}
     </DetailContainer>
   );
