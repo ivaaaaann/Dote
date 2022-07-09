@@ -10,6 +10,7 @@ export const DetailItemContainer = styled.button<{ isSelected: boolean }>`
   justify-content: center;
   border: 0px;
   outline: none;
+  padding: 20px;
 
   ${({ isSelected, theme }) =>
     isSelected &&
