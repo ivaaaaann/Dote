@@ -17,13 +17,14 @@ const test: VoteDetail[] = [
 
 const Detail = () => {
   const navigate = useNavigate();
-  const { selectedVote, onChangeVote } = useVoteDetail();
+  const { selectedVote, onChangeVote, onSubmitVote } = useVoteDetail();
 
   return (
     <>
       <DetailContainer>
         {test.map((item) => (
           <DetailItem
+            key={"voteDetailItem" + item.id}
             voteDetailData={item}
             onChangeVote={onChangeVote}
             selectedVote={item.voteTitle === selectedVote}
@@ -32,7 +33,9 @@ const Detail = () => {
         <DetailSubmitButton direction="left" onClick={() => navigate("/")}>
           뒤로가기
         </DetailSubmitButton>
-        <DetailSubmitButton direction="right">투표</DetailSubmitButton>
+        <DetailSubmitButton direction="right" onClick={onSubmitVote}>
+          투표
+        </DetailSubmitButton>
       </DetailContainer>
     </>
   );

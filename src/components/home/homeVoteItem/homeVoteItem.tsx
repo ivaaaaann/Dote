@@ -15,7 +15,9 @@ const HomeVoteItem = ({ voteData }: Props) => {
   const navigate = useNavigate();
 
   return (
-    <HomeVoteItemContainer onClick={() => navigate(`/detail/${voteData.id}`)}>
+    <HomeVoteItemContainer
+      onClick={() => navigate(`/voteDetail/${voteData.id}`)}
+    >
       <HomeVoteItemTitle>{voteData.title}</HomeVoteItemTitle>
       <HomeVoteTimeWrap>
         <HomeVoteTime>{voteData.startTime}</HomeVoteTime>~

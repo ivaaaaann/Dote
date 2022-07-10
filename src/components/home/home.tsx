@@ -57,7 +57,7 @@ const Home = () => {
   return (
     <HomeContainer>
       {test.map((item) => (
-        <HomeVoteItem voteData={item} />
+        <HomeVoteItem key={"vote " + item.id} voteData={item} />
       ))}
     </HomeContainer>
   );
