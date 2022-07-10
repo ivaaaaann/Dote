@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import useVoteDetail from "../../hooks/detail/useVoteDetail";
 import { VoteDetail } from "../../interfaces/common/common.type";
 import DetailItem from "./detailItem/detailItem";
-import { DetailContainer } from "./style";
+import { DetailContainer, DetailSubmitButton } from "./style";
 
 const test: VoteDetail[] = [
   { id: 1, voteTitle: "레드벨벳" },
@@ -15,18 +16,28 @@ const test: VoteDetail[] = [
 ];
 
 const Detail = () => {
-  const { selectedVote, onChangeVote } = useVoteDetail();
+  const navigate = useNavigate();
+  const { selectedVote, onChangeVote, onSubmitVote } = useVoteDetail();
 
   return (
-    <DetailContainer>
-      {test.map((item) => (
-        <DetailItem
-          voteDetailData={item}
-          onChangeVote={onChangeVote}
-          selectedVote={item.voteTitle === selectedVote}
-        />
-      ))}
-    </DetailContainer>
+    <>
+      <DetailContainer>
+        {test.map((item) => (
+          <DetailItem
+            key={"voteDetailItem" + item.id}
+            voteDetailData={item}
+            onChangeVote={onChangeVote}
+            selectedVote={item.voteTitle === selectedVote}
+          />
+        ))}
+        <DetailSubmitButton direction="left" onClick={() => navigate("/")}>
+          뒤로가기
+        </DetailSubmitButton>
+        <DetailSubmitButton direction="right" onClick={onSubmitVote}>
+          투표
+        </DetailSubmitButton>
+      </DetailContainer>
+    </>
   );
 };
 

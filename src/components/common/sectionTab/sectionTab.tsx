@@ -11,6 +11,7 @@ const SectionTab = () => {
     <SectionTabContainer>
       {SECTION_TAB_ITEMS.map((sectionItem) => (
         <SectionTabItem
+          key={"sectionItem " + sectionItem.title}
           isSelected={section === sectionItem.title}
           onClick={() => {
             setSection(sectionItem.title);
