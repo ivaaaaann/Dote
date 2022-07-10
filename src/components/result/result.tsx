@@ -1,6 +1,6 @@
 import { ResultContainer } from "./style";
-import { Result as ResultType } from "../../interfaces/common/common.type";
 import ResultItem from "./resultItem/resultItem";
+import { Result as ResultType } from "../../interfaces/result/result.type";
 
 const test: ResultType[] = [
   {

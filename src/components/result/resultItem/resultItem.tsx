@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Result } from "../../../interfaces/common/common.type";
+import { Result } from "../../../interfaces/result/result.type";
 import {
   ResultItemContainer,
   ResultItemTime,

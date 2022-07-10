@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import useVoteDetail from "../../hooks/detail/useVoteDetail";
+import useVoteDetail from "../../hooks/vote/useVoteDetail";
 import { VoteDetail } from "../../interfaces/common/common.type";
 import DetailItem from "./detailItem/detailItem";
 import { DetailContainer, DetailSubmitButton } from "./style";

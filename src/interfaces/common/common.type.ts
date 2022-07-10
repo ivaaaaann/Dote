@@ -9,5 +9,3 @@ export interface VoteDetail {
   id: number;
   voteTitle: string;
 }
-
-export interface Result extends Vote {}
