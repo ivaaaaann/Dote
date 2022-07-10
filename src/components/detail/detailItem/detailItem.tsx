@@ -1,3 +1,4 @@
+import React from "react";
 import { VoteDetail } from "../../../interfaces/common/common.type";
 import { DetailItemContainer, DetailItemText } from "./style";
 
@@ -19,4 +20,4 @@ const DetailItem = ({ voteDetailData, onChangeVote, selectedVote }: Props) => {
   );
 };
 
-export default DetailItem;
+export default React.memo(DetailItem);

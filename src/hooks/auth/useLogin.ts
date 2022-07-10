@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_KEY } from "../../constants/auth/auth.contant";
 import localStorage from "../../lib/localStorage/localStorage";
@@ -6,16 +6,19 @@ import localStorage from "../../lib/localStorage/localStorage";
 const useLogin = () => {
   const [studentNumber, setStudentNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
-
+  const navigate = useNavigate();
   const handleLogin = async () => {
+    localStorage.setItem(ACCESS_KEY, "..");
+    navigate("/");
     // const data = await loginApi(studentNumber, name);
-  }
+  };
+
   return {
     handleLogin,
     studentNumber,
     setStudentNumber,
     name,
-    setName
+    setName,
   };
 };
 
