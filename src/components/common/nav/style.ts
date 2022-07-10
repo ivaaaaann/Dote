@@ -37,4 +37,7 @@ export const NavDarkmodeButton = styled.button`
   outline: none;
   font-size: 30px;
   color: ${({ theme }) => theme.contrast};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

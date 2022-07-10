@@ -16,6 +16,6 @@ export const PageTemplateWrap = styled.div`
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
+  margin-top: 90px;
   padding: 0px 20px;
 `;

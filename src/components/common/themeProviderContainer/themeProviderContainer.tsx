@@ -9,6 +9,7 @@ interface Props {
 
 const ThemeProviderContainer = ({ children }: Props) => {
   const { themeColor } = useTheme();
+
   return (
     <ThemeProvider theme={themeColor}>
       <GlobalStyle />

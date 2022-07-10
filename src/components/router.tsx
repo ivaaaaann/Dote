@@ -1,15 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import useAuth from "../hooks/auth/useAuth";
+import DetailPage from "../pages/detailPage";
 import HomePage from "../pages/homePage";
 import LoginPage from "../pages/loginPage";
 
 const Router = () => {
-  const {} = useAuth();
-
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/voteDetail/:id" element={<DetailPage />} />
+      <Route path="/result" element={<></>} />
     </Routes>
   );
 };

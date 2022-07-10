@@ -11,7 +11,7 @@ const useAuth = () => {
     } else {
       navigate("/");
     }
-  }, [navigate]);
+  }, []);
 
   return {};
 };
