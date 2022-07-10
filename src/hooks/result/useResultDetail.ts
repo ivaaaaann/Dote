@@ -6,7 +6,10 @@ interface Params {
 }
 
 const useResultDetail = ({ id }: Params) => {
-  const resultDetail = useGetResultDetail({ id }, { refetchInterval: 1000 });
+  const resultDetail = useGetResultDetail(
+    { id },
+    { enabled: !!id, refetchInterval: 1000 }
+  );
 
   useEffect(() => {
     console.log(resultDetail);

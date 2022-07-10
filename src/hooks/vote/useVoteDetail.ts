@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const useVoteDetail = () => {
+interface Params {
+  id: string;
+}
+
+const useVoteDetail = ({ id }: Params) => {
   const [selectedVote, setSelectedVote] = useState<String>("");
 
   const onChangeVote = (title: string) => {
