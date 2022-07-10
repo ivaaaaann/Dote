@@ -16,12 +16,12 @@ export const LoginBtn = styled.button`
   font-size: 20px;
   padding: 14px 80px;
   cursor: pointer;
-  color: ${({ theme }) => theme.contrast};
-  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.backgroundColor};
+  background-color: ${({ theme }) => theme.contrast};
   font-size: 1.5rem;
   font-family: 'Roboto';
   font-weight: 100;
-  border: 1px solid #fff; 
+  border: none; 
   transition-duration: 0.5s; 
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
