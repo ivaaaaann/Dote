@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
-import useVoteDetail from "../../hooks/detail/useVoteDetail";
+import { useNavigate, useParams } from "react-router-dom";
+import useVoteDetail from "../../hooks/vote/useVoteDetail";
 import { VoteDetail } from "../../interfaces/common/common.type";
 import DetailItem from "./detailItem/detailItem";
 import { DetailContainer, DetailSubmitButton } from "./style";
@@ -16,8 +16,11 @@ const test: VoteDetail[] = [
 ];
 
 const Detail = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const { selectedVote, onChangeVote, onSubmitVote } = useVoteDetail();
+  const { selectedVote, onChangeVote, onSubmitVote } = useVoteDetail({
+    id: String(id),
+  });
 
   return (
     <>
