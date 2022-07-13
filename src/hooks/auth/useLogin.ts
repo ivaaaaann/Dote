@@ -8,6 +8,7 @@ const useLogin = () => {
   const [name, setName] = useState<string>("");
 
   const handleLogin = async () => {
+    localStorage.setItem(ACCESS_KEY, "11");
     // const data = await loginApi(studentNumber, name);
   }
   return {

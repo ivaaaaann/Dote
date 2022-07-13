@@ -1,7 +1,9 @@
 import { Vote } from "../../interfaces/common/common.type";
 import HomeVoteItem from "./homeVoteItem/homeVoteItem";
 import { HomeContainer } from "./style";
-
+import CustomModal from "../common/modal/customModal";
+import VoteForm from "../admin/voteForm/voteForm";
+import { useState } from "react";
 const test: Vote[] = [
   {
     id: 1,
@@ -54,11 +56,19 @@ const test: Vote[] = [
 ];
 
 const Home = () => {
+  const [modalState, setModalState] = useState<boolean>(true);
   return (
     <HomeContainer>
-      {test.map((item) => (
-        <HomeVoteItem key={"vote " + item.id} voteData={item} />
-      ))}
+      {modalState && (
+        <CustomModal closeModal={setModalState}>
+          <VoteForm />
+        </CustomModal>
+      )}
+      <>
+        {test.map((item) => (
+          <HomeVoteItem key={"vote " + item.id} voteData={item} />
+        ))}
+      </>
     </HomeContainer>
   );
 };
