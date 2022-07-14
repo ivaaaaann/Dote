@@ -20,7 +20,7 @@ const ResultItem = ({ resultData }: Props) => {
     >
       <ResultItemTitle>{resultData.title} 현황</ResultItemTitle>
       <ResultItemTimeWrap>
-        <ResultItemTime>{resultData.startTime}</ResultItemTime>~
+        {/* <ResultItemTime>{resultData.startTime}</ResultItemTime>~ */}
         <ResultItemTime>{resultData.endTime}</ResultItemTime>
       </ResultItemTimeWrap>
     </ResultItemContainer>

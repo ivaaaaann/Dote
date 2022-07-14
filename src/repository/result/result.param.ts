@@ -1,3 +1,3 @@
-export interface getResultDetail {
+export interface getResultDetailParam {
   id: string;
 }
