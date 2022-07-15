@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { VoteDetail } from "../../interfaces/vote/vote.type";
 import { useGetVote, usePostVote } from "../../querys/vote.query";
 
@@ -7,6 +8,8 @@ interface Params {
 }
 
 const useVoteDetail = ({ id }: Params) => {
+  const navigate = useNavigate();
+
   const [selectedVote, setSelectedVote] = useState<VoteDetail>({
     id: -1,
     name: "",
@@ -30,6 +33,7 @@ const useVoteDetail = ({ id }: Params) => {
         teamId: selectedVote.id,
       });
       window.alert("투표 성공");
+      navigate("/");
     } catch (error) {
       window.alert("투표 실패");
     }
