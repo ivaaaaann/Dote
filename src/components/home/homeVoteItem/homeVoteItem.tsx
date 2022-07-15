@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Vote } from "../../../interfaces/common/common.type";
+import { Vote } from "../../../interfaces/vote/vote.type";
 import {
   HomeVoteItemContainer,
   HomeVoteItemTitle,
@@ -20,7 +20,7 @@ const HomeVoteItem = ({ voteData }: Props) => {
     >
       <HomeVoteItemTitle>{voteData.title}</HomeVoteItemTitle>
       <HomeVoteItemTimeWrap>
-        <HomeVoteItemTime>{voteData.startTime}</HomeVoteItemTime>~
+        {/* <HomeVoteItemTime>{voteData.startTime}</HomeVoteItemTime>~ */}
         <HomeVoteItemTime>{voteData.endTime}</HomeVoteItemTime>
       </HomeVoteItemTimeWrap>
     </HomeVoteItemContainer>

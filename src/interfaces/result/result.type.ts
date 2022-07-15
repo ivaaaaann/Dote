@@ -1,10 +1,10 @@
-import { Vote } from "../common/common.type";
 import { Response } from "../util/response.type";
+import { Vote } from "../vote/vote.type";
 
 export interface Result extends Vote {}
 
 export interface ResultDetail extends Vote {
-  point: number;
+  vote_count: number;
 }
 
 export interface ResultDetailResponse extends Response {

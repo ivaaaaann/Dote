@@ -1,21 +1,21 @@
 import React from "react";
-import { VoteDetail } from "../../../interfaces/common/common.type";
+import { VoteDetail } from "../../../interfaces/vote/vote.type";
 import { DetailItemContainer, DetailItemText } from "./style";
 
 interface Props {
   voteDetailData: VoteDetail;
-  onChangeVote: (title: string) => void;
+  onChangeVote: (vote: VoteDetail) => void;
   selectedVote: boolean;
 }
 
 const DetailItem = ({ voteDetailData, onChangeVote, selectedVote }: Props) => {
   return (
     <DetailItemContainer
-      value={voteDetailData.voteTitle}
+      value={voteDetailData.name}
       isSelected={selectedVote}
-      onClick={() => onChangeVote(voteDetailData.voteTitle)}
+      onClick={() => onChangeVote(voteDetailData)}
     >
-      <DetailItemText>{voteDetailData.voteTitle}</DetailItemText>
+      <DetailItemText>{voteDetailData.name}</DetailItemText>
     </DetailItemContainer>
   );
 };
