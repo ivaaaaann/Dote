@@ -1,7 +1,8 @@
 import axios from "axios";
+import config from "../../config/config.json"
 
 export const customAxios = axios.create({
-  baseURL: "http://192.168.1.85:8080/api/v1",
+  baseURL: config.SERVER,
   headers: {
     "Access-Control-Allow-Origin": "*",
   },
