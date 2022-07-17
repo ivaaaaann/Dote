@@ -1,7 +1,7 @@
 export interface Vote {
   id: number;
   title: string;
-  endTime: string;
+  end_time: string;
 }
 
 export interface VoteDetail {

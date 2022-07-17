@@ -4,7 +4,7 @@ import { HomeContainer } from "./style";
 
 const Home = () => {
   const { data, isLoading } = useGetVotes(
-    { page: 1 },
+    { page: 0 },
     {
       staleTime: 10000,
       cacheTime: 20000,

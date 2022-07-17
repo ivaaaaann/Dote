@@ -8,5 +8,5 @@ export interface ResultDetail extends Vote {
 }
 
 export interface ResultDetailResponse extends Response {
-  data: ResultDetail[];
+  content: ResultDetail[];
 }
