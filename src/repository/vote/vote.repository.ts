@@ -10,13 +10,13 @@ class VoteRepository {
   }
 
   public async getVote({ voteId }: getVoteParam): Promise<VoteResponse> {
-    const { data } = await customAxios.get<VoteResponse>(`/${voteId}`);
+    const { data } = await customAxios.get<VoteResponse>(`/vote/${voteId}`);
     console.log("getVote " + data.content);
     return data;
   }
 
   public async postVote({ voteId, teamId }: postVoteParam): Promise<void> {
-    await customAxios.post(`/${voteId}/ballot`, { team_id: teamId });
+    await customAxios.post(`/vote/${voteId}/ballot`, { team_id: teamId });
   }
 
   public async createVote(voteInfo: postCreateVoteParam): Promise<void> {

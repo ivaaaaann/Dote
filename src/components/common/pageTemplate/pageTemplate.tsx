@@ -1,4 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ACCESS_KEY } from "../../../constants/auth/auth.contant";
 import localStorage from "../../../lib/localStorage/localStorage";
 import Nav from "../nav/nav";
@@ -11,6 +12,7 @@ interface Props {
 
 const PageTemplate = ({ children }: Props) => {
   const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem(ACCESS_KEY)) {
@@ -18,7 +20,7 @@ const PageTemplate = ({ children }: Props) => {
     } else {
       setIsLogin(false);
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <PageTemplateContainer>

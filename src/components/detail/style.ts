@@ -2,12 +2,10 @@ import styled, { css } from "styled-components";
 
 export const DetailContainer = styled.div`
   width: 100%;
-  height: 802px;
   display: flex;
   flex-wrap: wrap;
+  row-gap: 8px;
   justify-content: space-between;
-  column-gap: auto;
-  row-gap: auto;
 `;
 
 export const DetailSubmitButton = styled.button<{
