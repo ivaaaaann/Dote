@@ -10,10 +10,11 @@ interface CustomInputProps {
   passwordInput?: React.RefObject<HTMLInputElement>;
   maxLength?: number;
   onClick?: () => Promise<void> | void;
+  onChange?: React.ChangeEventHandler;
 }
 
 const Input = styled.input`
-  width: 100%;
+  width: 80%;
   height: 40px;
   font-size: 16px;
   transition: 0.6s;
@@ -40,7 +41,6 @@ const CustomInput = ({
   style,
   passwordInput,
   maxLength,
-  onClick,
 }: CustomInputProps) => {
   return (
     <>
@@ -49,10 +49,11 @@ const CustomInput = ({
         type={type}
         value={value}
         placeholder={placeholder}
-        onChange={(e) => setValue && setValue(e.target.value)}
+        onChange={(e) => {
+          setValue && setValue(e.target.value);
+        }}
         ref={passwordInput}
         maxLength={maxLength}
-        onClick={onClick}
       />
     </>
   );

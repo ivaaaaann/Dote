@@ -1,6 +1,6 @@
 import { VoteResponse, VotesResponse } from "../../interfaces/vote/vote.type";
 import { customAxios } from "../../lib/axios/customAxios";
-import { getVoteParam, getVotesParam, postVoteParam } from "./vote.param";
+import { getVoteParam, getVotesParam, postVoteParam, postCreateVoteParam } from "./vote.param";
 
 class VoteRepository {
   public async getVotes({ page }: getVotesParam): Promise<VotesResponse> {
@@ -17,6 +17,10 @@ class VoteRepository {
 
   public async postVote({ voteId, teamId }: postVoteParam): Promise<void> {
     await customAxios.post(`/vote/${voteId}/ballot`, { team_id: teamId });
+  }
+
+  public async createVote(voteInfo: postCreateVoteParam): Promise<void> {
+    await customAxios.post(`/vote`, voteInfo);
   }
 }
 

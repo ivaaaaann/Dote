@@ -16,3 +16,4 @@ export interface VotesResponse extends Response {
 export interface VoteResponse extends Response {
   content: VoteDetail[];
 }
+
