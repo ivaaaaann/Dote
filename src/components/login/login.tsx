@@ -1,13 +1,17 @@
+import { useEffect } from "react";
 import useLogin from "../../hooks/auth/useLogin";
-import CustomInput from "../common/input/customInput";
 import { LoginContainer, LoginBtn } from "./style";
+import config from "../../config/config.json";
+const URL = "http://localhost:3000/login";
 
 const Login = () => {
-  const { handleLogin, studentNumber, setStudentNumber, name, setName } =
-    useLogin();
+  const { handleLogin } = useLogin();
+  useEffect(() => {
+    handleLogin();
+  }, []);
   return (
     <LoginContainer>
-      <CustomInput
+      {/* <CustomInput
         type="number"
         placeholder="학반번호"
         value={studentNumber}
@@ -18,15 +22,12 @@ const Login = () => {
         placeholder="이름"
         value={name}
         setValue={setName}
-      />
-      <LoginBtn
-        type="submit"
-        onClick={() => {
-          handleLogin();
-        }}
+      /> */}
+      <a
+        href={`http://dauth.b1nd.com/login?client_id=${config.CLIENTID}&redirect_uri=${URL}`}
       >
-        로그인
-      </LoginBtn>
+        <LoginBtn>도담도담 로그인</LoginBtn>
+      </a>
     </LoginContainer>
   );
 };

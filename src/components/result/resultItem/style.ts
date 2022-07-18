@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomeVoteItemContainer = styled.div`
+export const ResultItemContainer = styled.div`
   width: 100%;
   height: 100px;
   border-radius: 20px;
@@ -16,20 +16,20 @@ export const HomeVoteItemContainer = styled.div`
   }
 `;
 
-export const HomeVoteItemTitle = styled.h1`
+export const ResultItemTitle = styled.h1`
   font-size: 25px;
   color: ${({ theme }) => theme.contrast};
   display: flex;
   align-items: center;
 `;
 
-export const HomeVoteItemTimeWrap = styled.div`
+export const ResultItemTimeWrap = styled.div`
   display: flex;
   align-items: center;
   column-gap: 10px;
 `;
 
-export const HomeVoteItemTime = styled.span`
+export const ResultItemTime = styled.span`
   font-size: 15px;
   color: ${({ theme }) => theme.contrast};
 `;

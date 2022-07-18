@@ -1,22 +1,24 @@
-import { useCallback, useState } from "react";
+// import { postLoginInfo } from './../../repository/login/login.parms';
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_KEY } from "../../constants/auth/auth.contant";
 import localStorage from "../../lib/localStorage/localStorage";
-
+import { useParams } from '../useParmas';
+import LoginRepository from '../../repository/login/login.repository';
 const useLogin = () => {
-  const [studentNumber, setStudentNumber] = useState<string>("");
-  const [name, setName] = useState<string>("");
-
+  const navigate = useNavigate();
+  const code = useParams('code');
   const handleLogin = async () => {
-    localStorage.setItem(ACCESS_KEY, "11");
-    // const data = await loginApi(studentNumber, name);
-  }
+    if (code) {
+      const { token } = await LoginRepository.tryLogin(code);
+      localStorage.setItem(ACCESS_KEY, token);
+      navigate("/");
+    }
+  };
+
+
   return {
     handleLogin,
-    studentNumber,
-    setStudentNumber,
-    name,
-    setName
   };
 };
 
