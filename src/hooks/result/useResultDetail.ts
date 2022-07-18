@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ResultDetail } from "../../interfaces/result/result.type";
 import { useGetResultDetail } from "../../querys/result.query";
 
 interface Params {
@@ -6,16 +7,24 @@ interface Params {
 }
 
 const useResultDetail = ({ id }: Params) => {
-  const resultDetail = useGetResultDetail(
+  const { data } = useGetResultDetail(
     { id },
     { enabled: !!id, refetchInterval: 1000 }
   );
 
-  useEffect(() => {
-    console.log(resultDetail);
-  }, [resultDetail]);
+  const [resultDetailData, setResultDetailData] = useState<ResultDetail[]>([]);
 
-  return {};
+  useEffect(() => {
+    if (data) {
+      setResultDetailData(
+        data?.content.sort((a, b) => {
+          return b.vote_count - a.vote_count;
+        })
+      );
+    }
+  }, [data]);
+
+  return { resultDetailData };
 };
 
 export default useResultDetail;
