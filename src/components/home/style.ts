@@ -7,3 +7,7 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   row-gap: 20px;
 `;
+
+export const AddVoteBtn = styled.button`
+  width:50px;
+`

@@ -2,10 +2,16 @@ import React, { Dispatch, ReactNode, SetStateAction } from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
 
+interface Props {
+  children?: ReactNode;
+  closeModal?: Dispatch<SetStateAction<boolean>>;
+  visible?: boolean;
+}
+
 const Container = styled.div`
   position: relative;
   width: 100%;
-  margin: 0 auto;
+  margin: 100px auto;
   color: ${({ theme }) => theme.contrast};
   height: auto;
   min-height: 50px;
@@ -23,23 +29,32 @@ const CloseBtn = styled.button`
   background-color: transparent;
 `;
 
-interface Props {
-  children?: ReactNode;
-  closeModal?: Dispatch<SetStateAction<boolean>>;
-}
+const ModalOverlay = styled.div`
+  box-sizing: border-box;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+`;
 
 const CustomModal: React.FC<Props> = ({ children, closeModal }) => {
   return (
-    <Container>
-      <CloseBtn
-        onClick={() => {
-          closeModal && closeModal(false);
-        }}
-      >
-        <AiOutlineClose size={"20px"} />
-      </CloseBtn>
-      {children}
-    </Container>
+    <ModalOverlay>
+      <Container>
+        <CloseBtn
+          onClick={() => {
+            closeModal && closeModal(false);
+          }}
+        >
+          <AiOutlineClose size={"20px"} />
+        </CloseBtn>
+        {children}
+      </Container>
+    </ModalOverlay>
   );
 };
 

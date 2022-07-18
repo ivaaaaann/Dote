@@ -1,18 +1,21 @@
 import { useState, useEffect } from 'react';
-import { VoteDetail } from '../../interfaces/common/common.type';
+import { VoteDetail } from '../../interfaces/vote/vote.type';
+import voteRepository from '../../repository/vote/vote.repository';
 
 const useVoteForm = () => {
+    const [title, setTitle] = useState("");
+    const [date, setDate] = useState("");
     const [voteItems, setVoteItems] = useState<VoteDetail[]>([]);
+
     useEffect(() => {
         console.log(voteItems);
-
     }, [voteItems])
 
-    const handleChangeVoteItem = (voteName: string, id: number): void => {
+    const handleChangeVoteItem = (voteTitle: string, id: number): void => {
         setVoteItems(
             voteItems.map((item) =>
                 item.id === id
-                    ? { ...item, voteTitle: voteName }
+                    ? { ...item, name: voteTitle }
                     : item
             )
         );
@@ -21,7 +24,7 @@ const useVoteForm = () => {
     const addVoteItem = (): void => {
         setVoteItems((items) => [
             ...items,
-            { id: voteItems.length, voteTitle: "" },
+            { id: voteItems.length, name: "" },
         ])
     }
 
@@ -31,12 +34,26 @@ const useVoteForm = () => {
         ))
     }
 
+    const createVote = (): void => {
+        const voteInfo = {
+            title,
+            items: voteItems,
+            end_time: date
+        }
+        console.log(voteInfo);
+
+        voteRepository.createVote(voteInfo)
+    }
+
     return {
         voteItems,
+        setTitle,
+        setDate,
         setVoteItems,
         handleChangeVoteItem,
         addVoteItem,
-        deleteVoteItem
+        deleteVoteItem,
+        createVote
     }
 }
 

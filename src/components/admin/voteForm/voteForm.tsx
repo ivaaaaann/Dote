@@ -6,35 +6,38 @@ import { AiTwotoneDelete } from "react-icons/ai";
 import { ETheme } from "../../../enum/theme/theme.eunm";
 import { useRecoilValue } from "recoil";
 import { themeModeAtom } from "../../../store/theme/themeStore";
-import { VoteDetail } from "../../../interfaces/common/common.type";
+import { VoteDetail } from "../../../interfaces/vote/vote.type";
+import { useState } from "react";
+
 const VoteForm = () => {
   const {
     voteItems,
-    setVoteItems,
+    setTitle,
+    setDate,
     handleChangeVoteItem,
     addVoteItem,
     deleteVoteItem,
+    createVote,
   } = useVoteForm();
+
   const currentTheme = useRecoilValue(themeModeAtom);
+
   return (
     <Container>
-      <CustomInput placeholder="title" />
-      <input type={"datetime-local"} id="date" />
+      <CustomInput type={"text"} placeholder="제목" setValue={setTitle} />
+      <CustomInput type={"datetime-local"} setValue={setDate} />
       <>
         {voteItems.map((voteItem: VoteDetail, idx) => {
-          const { id, voteTitle } = voteItem;
+          const { id, name } = voteItem;
           return (
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex" }} key={idx}>
               <VoteInput
-                key={idx}
                 placeholder="항목을 입력해주세요"
-                value={voteTitle}
                 onChange={(e) => {
                   handleChangeVoteItem(e.target.value, id);
                 }}
               />
               <DeleteBtn
-                key={idx}
                 onClick={() => {
                   deleteVoteItem(id);
                 }}
@@ -65,7 +68,13 @@ const VoteForm = () => {
         <p>항목추가</p>
       </div>
 
-      <CreateBtn>생성</CreateBtn>
+      <CreateBtn
+        onClick={() => {
+          createVote();
+        }}
+      >
+        생성
+      </CreateBtn>
     </Container>
   );
 };

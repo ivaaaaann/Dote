@@ -41,6 +41,7 @@ export const VoteInput = styled.input`
     height:30px;
     border:1px solid #fff;
     padding:10px;
+    
     ::placeholder{
         color:${({ theme }) => theme.subBackgroundColor};
     }
