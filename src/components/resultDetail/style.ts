@@ -5,4 +5,5 @@ export const ResultDetailContainer = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
+  row-gap: 20px;
 `;

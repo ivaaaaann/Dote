@@ -27,16 +27,20 @@ const useVoteDetail = ({ id }: Params) => {
 
   const onSubmitVote = async () => {
     if (selectedVote.id === -1) return;
-    try {
-      postVoteMutation.mutateAsync({
+    postVoteMutation.mutateAsync(
+      {
         voteId: Number(id),
         teamId: selectedVote.id,
-      });
-      window.alert("투표 성공");
-      navigate("/");
-    } catch (error) {
-      window.alert("투표 실패");
-    }
+      },
+      {
+        onSuccess: () => {
+          window.alert("투표에 성공하였습니다.");
+          navigate("/");
+        },
+        onError: () =>
+          window.alert("중복투표 했거나, 하던 도중 오류가 발생하였습니다."),
+      }
+    );
   };
 
   return {

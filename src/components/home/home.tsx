@@ -9,7 +9,7 @@ const Home = () => {
   const [modalState, setModalState] = useState<boolean>(false);
 
   const { data, isLoading } = useGetVotes(
-    { page: 1 },
+    { page: 0 },
     {
       staleTime: 10000,
       cacheTime: 20000,

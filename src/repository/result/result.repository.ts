@@ -6,7 +6,9 @@ class ResultRepository {
   public async getResultDetail({
     id,
   }: getResultDetailParam): Promise<ResultDetailResponse> {
-    const { data } = await customAxios.get(`/result/detail/${id}`);
+    const { data } = await customAxios.get<ResultDetailResponse>(
+      `/vote/${id}/ballot`
+    );
     return data;
   }
 }

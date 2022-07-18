@@ -21,7 +21,7 @@ const HomeVoteItem = ({ voteData }: Props) => {
       <HomeVoteItemTitle>{voteData.title}</HomeVoteItemTitle>
       <HomeVoteItemTimeWrap>
         {/* <HomeVoteItemTime>{voteData.startTime}</HomeVoteItemTime>~ */}
-        <HomeVoteItemTime>{voteData.endTime}</HomeVoteItemTime>
+        <HomeVoteItemTime>{voteData.end_time}</HomeVoteItemTime>
       </HomeVoteItemTimeWrap>
     </HomeVoteItemContainer>
   );

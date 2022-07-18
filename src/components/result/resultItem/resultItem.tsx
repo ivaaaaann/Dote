@@ -18,10 +18,10 @@ const ResultItem = ({ resultData }: Props) => {
     <ResultItemContainer
       onClick={() => navigate(`/resultDetail/${resultData.id}`)}
     >
-      <ResultItemTitle>{resultData.title} 현황</ResultItemTitle>
+      <ResultItemTitle>{resultData.title} 투표 현황</ResultItemTitle>
       <ResultItemTimeWrap>
         {/* <ResultItemTime>{resultData.startTime}</ResultItemTime>~ */}
-        <ResultItemTime>{resultData.endTime}</ResultItemTime>
+        <ResultItemTime>{resultData.end_time}</ResultItemTime>
       </ResultItemTimeWrap>
     </ResultItemContainer>
   );
