@@ -35,12 +35,13 @@ const useVoteForm = () => {
     }
 
     const createVote = (): void => {
+        const convertDate = date.replace("T", " ")
+
         const voteInfo = {
             title,
             items: voteItems,
-            end_time: date
+            end_time: convertDate
         }
-        console.log(voteInfo);
 
         voteRepository.createVote(voteInfo)
     }

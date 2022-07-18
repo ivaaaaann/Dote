@@ -1,5 +1,4 @@
 import useVoteForm from "../../../hooks/admin/useVoteForm";
-import { CreateBtn, Container, AddBtn, VoteInput, DeleteBtn } from "./style";
 import CustomInput from "../../common/input/customInput";
 import { BsPlusCircleFill, BsPlusCircle } from "react-icons/bs";
 import { AiTwotoneDelete } from "react-icons/ai";
@@ -7,7 +6,7 @@ import { ETheme } from "../../../enum/theme/theme.eunm";
 import { useRecoilValue } from "recoil";
 import { themeModeAtom } from "../../../store/theme/themeStore";
 import { VoteDetail } from "../../../interfaces/vote/vote.type";
-import { useState } from "react";
+import { AddBtn, Container, CreateBtn, DeleteBtn, VoteInput } from "./style";
 
 const VoteForm = () => {
   const {
@@ -33,7 +32,7 @@ const VoteForm = () => {
             <div style={{ display: "flex" }} key={idx}>
               <VoteInput
                 placeholder="항목을 입력해주세요"
-                onChange={(e) => {
+                onChange={(e: any) => {
                   handleChangeVoteItem(e.target.value, id);
                 }}
               />
