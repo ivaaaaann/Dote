@@ -1,6 +1,7 @@
 import { VoteResponse, VotesResponse } from "../../interfaces/vote/vote.type";
 import { customAxios } from "../../lib/axios/customAxios";
 import { getVoteParam, getVotesParam, postVoteParam, postCreateVoteParam } from "./vote.param";
+import { ACCESS_KEY } from "../../constants/auth/auth.contant";
 
 class VoteRepository {
   public async getVotes({ page }: getVotesParam): Promise<VotesResponse> {
@@ -20,8 +21,13 @@ class VoteRepository {
   }
 
   public async createVote(voteInfo: postCreateVoteParam): Promise<void> {
-    await customAxios.post(`/vote`, voteInfo);
+    await customAxios.post(`/vote`, voteInfo, {
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem(
+          ACCESS_KEY
+        )}`,
+      }
+    })
   }
 }
-
 export default new VoteRepository();
