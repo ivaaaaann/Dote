@@ -8,7 +8,7 @@ const Login = () => {
   const { handleLogin } = useLogin();
   useEffect(() => {
     handleLogin();
-  }, []);
+  }, [handleLogin]);
   return (
     <LoginContainer>
       {/* <CustomInput

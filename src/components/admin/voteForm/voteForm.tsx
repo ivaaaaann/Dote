@@ -7,7 +7,6 @@ import { ETheme } from "../../../enum/theme/theme.eunm";
 import { useRecoilValue } from "recoil";
 import { themeModeAtom } from "../../../store/theme/themeStore";
 import { VoteDetail } from "../../../interfaces/vote/vote.type";
-import { useState } from "react";
 
 const VoteForm = () => {
   const {
@@ -28,7 +27,7 @@ const VoteForm = () => {
       <CustomInput type={"datetime-local"} setValue={setDate} />
       <>
         {voteItems.map((voteItem: VoteDetail, idx) => {
-          const { id, name } = voteItem;
+          const { id } = voteItem;
           return (
             <div style={{ display: "flex" }} key={idx}>
               <VoteInput
