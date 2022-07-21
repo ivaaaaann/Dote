@@ -7,9 +7,14 @@ const useLogin = () => {
   const navigate = useNavigate();
   const code = useParams("code");
   const handleLogin = async () => {
-    if (code) {
-      const { token } = await LoginRepository.tryLogin(code);
-      localStorage.setItem(ACCESS_KEY, token);
+    try {
+      if (code) {
+        const { token } = await LoginRepository.tryLogin(code);
+        localStorage.setItem(ACCESS_KEY, token);
+        navigate("/");
+      }
+    } catch (e) {
+      window.alert("Authorization 실패");
       navigate("/");
     }
   };
