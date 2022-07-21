@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import useLogin from "../../hooks/auth/useLogin";
 import { LoginContainer, LoginBtn } from "./style";
 import config from "../../config/config.json";
-const URL = "http://localhost:3000/login";
+const URL = "https://dotedgsw.netlify.app/login";
 
 const Login = () => {
   const { handleLogin } = useLogin();
