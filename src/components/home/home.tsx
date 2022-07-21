@@ -9,6 +9,8 @@ import { userAtom } from "../../store/user/userStore";
 const Home = () => {
   const [modalState, setModalState] = useState<boolean>(false);
   const userInfo = useRecoilValue(userAtom);
+  console.log(userInfo);
+
   const { data, isLoading } = useGetVotes(
     { page: 0 },
     {
@@ -19,15 +21,17 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      <AddVoteBtn
-        onClick={() => {
-          setModalState(true);
-        }}
-      >
-        추가
-      </AddVoteBtn>
+      {userInfo.role === "ADMIN" && (
+        <AddVoteBtn
+          onClick={() => {
+            setModalState(true);
+          }}
+        >
+          추가
+        </AddVoteBtn>
+      )}
 
-      {userInfo.role && modalState && (
+      {modalState && (
         <CustomModal closeModal={setModalState}>
           <VoteForm />
         </CustomModal>

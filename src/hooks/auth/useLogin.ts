@@ -15,6 +15,7 @@ const useLogin = () => {
       if (code) {
         const { token, member } = await LoginRepository.tryLogin(code);
         localStorage.setItem(ACCESS_KEY, token);
+
         setUserInfo(member);
         navigate("/");
       }

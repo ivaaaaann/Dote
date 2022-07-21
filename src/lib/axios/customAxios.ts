@@ -5,6 +5,7 @@ import { getBearer } from "../../utils/auth/getBearer";
 
 export const customAxios = axios.create({
   baseURL: config.SERVER,
+  timeout: 2000,
   headers: {
     "Access-Control-Allow-Origin": "*",
     [REQUEST_KEY]: getBearer(localStorage.getItem(ACCESS_KEY)!),
