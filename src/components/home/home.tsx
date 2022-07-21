@@ -4,10 +4,11 @@ import { HomeContainer, AddVoteBtn } from "./style";
 import CustomModal from "../common/modal/customModal";
 import VoteForm from "../admin/voteForm/voteForm";
 import { useState } from "react";
-
+import { useRecoilValue } from "recoil";
+import { userAtom } from "../../store/user/userStore";
 const Home = () => {
   const [modalState, setModalState] = useState<boolean>(false);
-
+  const userInfo = useRecoilValue(userAtom);
   const { data, isLoading } = useGetVotes(
     { page: 0 },
     {
@@ -25,11 +26,13 @@ const Home = () => {
       >
         추가
       </AddVoteBtn>
-      {modalState && (
+
+      {userInfo.role && modalState && (
         <CustomModal closeModal={setModalState}>
           <VoteForm />
         </CustomModal>
       )}
+
       <>
         {isLoading ? (
           <>로딩중</>
