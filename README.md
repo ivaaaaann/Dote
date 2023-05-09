@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# [Dote](https://dotedgsw.netlify.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img src="./assets/readmeMock.png" width="100%" alt="readmeMock" />
+</p>
 
-## Available Scripts
+도트는 대소고에서 매학기마다 열리는 축제에서 팀을 투표하는 과정을 간편하게 웹으로 투표할 수 있게 하기 위해 기획되고, 개발된 축제 팀 투표 사이트에요.
 
-In the project directory, you can run:
+> 아쉽지만 해당 서비스는 Dauth 로그인만 지원하고 있어, 대소고학생 들만 사용할 수 있어요 🥲
 
-### `npm start`
+도트에서는 매 학기말이 되면 소프트웨어 축제가 열려요. 소프트웨어 축제에서는 학생들이 여러 부스를 운영하면서 여러 체험을 하거나 맛있는 걸 먹기도 하고, 학생들이 장기자랑 공연에 참가하여 춤이나 랩 노래 등 여러 끼를 마음껏 뽐내고 상금을 받아가기도 해요. 도트는 그때 공연팀의 인기투표를 위해 만들어진 웹사이트에요 😁
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# 프로젝트 기능
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- 팀 투표
+  - 관리자가 투표를 생성하고 사용자가 팀을 투표할 수 있습니다. 투표는 단 1번만 할 수 있습니다.
+- 투표 현황
+  - 진행되고 있는 투표를 실시간으로 조회할 수 있습니다.
 
-### `npm test`
+# 도트 화면
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="./assets/screen1.jpeg" width="100%" alt="dodamdodam" />
 
-### `npm run build`
+> 위 사진은 도트의 메인페이지 현황 섹션이에요. 등록된 투표의 현황을 실시간으로 확인할 수 있어요.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="./assets/screen2.jpeg" width="100%" alt="dodamdodam" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> 위 사진은 도트의 투표페이지에요. 팀중에 한팀을 투표할 수 있어요.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 기술스택
 
-### `npm run eject`
+`React`,`Styled-Components`,`Axios`,`TypeScript`,`React-Query`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 링크
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://dotedgsw.netlify.app/
